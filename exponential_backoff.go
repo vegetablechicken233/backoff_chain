@@ -3,7 +3,7 @@ package backoff_chain
 import (
 	"time"
 
-	"github.com/cenkalti/backoff/v5"
+	backoff "github.com/cenkalti/backoff/v5"
 )
 
 type exponentialBackOff struct {

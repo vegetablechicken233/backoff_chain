@@ -1,6 +1,8 @@
 package backoff_chain
 
-import "github.com/cenkalti/backoff/v5"
+import (
+	backoff "github.com/cenkalti/backoff/v5"
+)
 
 type zeroBackOff struct {
 	*backoffDoer

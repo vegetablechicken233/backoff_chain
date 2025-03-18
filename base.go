@@ -1,10 +1,9 @@
 package backoff_chain
 
 import (
-	"backoff"
 	"time"
 
-	"github.com/cenkalti/backoff/v5"
+	backoff "github.com/cenkalti/backoff/v5"
 )
 
 // Operation is a function that attempts an operation and may be retried.
@@ -15,7 +14,7 @@ type Notify backoff.Notify
 
 type backoffDoer struct {
 	*backoffBase
-	b BackOff
+	b backoff.BackOff
 }
 
 // backoffBase is the base struct for all backoff implementations.

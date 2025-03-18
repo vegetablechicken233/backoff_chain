@@ -1,10 +1,9 @@
 package backoff_chain
 
 import (
-	"backoff"
 	"time"
 
-	"github.com/cenkalti/backoff/v5"
+	backoff "github.com/cenkalti/backoff/v5"
 )
 
 type constantBackOff struct {

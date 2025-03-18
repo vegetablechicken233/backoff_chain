@@ -6,30 +6,10 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/cenkalti/backoff/v5"
+	backoff "github.com/cenkalti/backoff/v5"
 )
 
-// BackOff is a backoff policy for retrying an operation.
-type BackOff interface {
-	// NextBackOff returns the duration to wait before retrying the operation,
-	// backoff.Stop to indicate that no more retries should be made.
-	//
-	// Example usage:
-	//
-	//     duration := backoff.NextBackOff()
-	//     if duration == backoff.Stop {
-	//         // Do not retry operation.
-	//     } else {
-	//         // Sleep for duration and retry operation.
-	//     }
-	//
-	NextBackOff() time.Duration
-
-	// Reset to initial state.
-	Reset()
-}
-
-func CustomizeBackoff(b BackOff) *backoffDoer {
+func CustomizeBackoff(b backoff.BackOff) *backoffDoer {
 	pl := &backoffDoer{
 		backoffBase: &backoffBase{
 			maxElapsedTime: backoff.DefaultMaxElapsedTime,
